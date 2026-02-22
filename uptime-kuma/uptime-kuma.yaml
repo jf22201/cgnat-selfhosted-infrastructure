@@ -9,6 +9,6 @@ services:
       - ./uptime-kuma-data:/app/data
       - /var/run/docker.sock:/var/run/docker.sock # Essential for container monitoring
     ports:
-      - "${TS_IP}3001:3001"
+      - "${TS_IP}:3001:3001"
     networks:
       - homelab_net
