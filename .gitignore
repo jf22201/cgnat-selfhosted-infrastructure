@@ -1,11 +1,14 @@
 vaultwarden/*
 adguard/*
 cloudflared-tunnel/*
+caddy/*
 #Retain dockerfiles from docker directories only
 !vaultwarden/vaultwarden.yaml
 !adguard/adguard.yaml
 !cloudflared-tunnel/cloudflared-tunnel.yaml
-
+!caddy/caddy.yaml
 #env
 .env
 !.env.example
+#negatate all example files 
+!*.example

@@ -1,0 +1,4 @@
+#reverse_proxy for vaultwarden, this is needed due to requiring HTTPS to page.
+your-machine.your-tailnet.ts.net {
+    reverse_proxy vaultwarden:80
+}

@@ -7,8 +7,6 @@ services:
       - DOMAIN=https://${VAULT_DOMAIN}
       - SIGNUPS_ALLOWED=${SIGNUPS_ALLOWED}
       - ADMIN_TOKEN=${ADMIN_TOKEN}
-    ports:
-      - "${TS_IP}:8080:80" # Bind only to Tailscale IP
     volumes:
       - ./data:/data
     networks:
