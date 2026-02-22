@@ -9,7 +9,7 @@ services:
       - PGID=${GROUPID}
       - TZ=${ADMIN_TOKEN}
     ports:
-      - "${LAN_IP}:8384:8434"
+      - "${LAN_IP}:8384:8384"
       - "${LAN_IP}:22000:22000/tcp"
       - "${TS_IP}:22000:22000/tcp"
       - "${LAN_IP}:22000:22000/udp"
