@@ -1,0 +1,7 @@
+vaultwarden/*
+adguard/*
+cloudflared-tunnel/*
+#Retain dockerfiles from docker directories only
+!vaultwarden/vaultwarden.yaml
+!adguard/adguard.yaml
+!cloudflared-tunnel/cloudflared-tunnel.yaml
