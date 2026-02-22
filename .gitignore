@@ -5,3 +5,7 @@ cloudflared-tunnel/*
 !vaultwarden/vaultwarden.yaml
 !adguard/adguard.yaml
 !cloudflared-tunnel/cloudflared-tunnel.yaml
+
+#env
+.env
+!.env.example
