@@ -1,6 +1,6 @@
 services:
   syncthing:
-    image: linuxserver/syncthing:2.0.14
+    image: linuxserver/syncthing
     container_name: syncthing
     hostname: syncthing-hub
     restart: unless-stopped
