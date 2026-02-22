@@ -6,7 +6,7 @@ services:
     ports:
       - "${LAN_IP}:8080:80"
     volumes:
-      - /path/to/files:/srv
+      - ${MEDIA_DIR}:/srv
       - ./filebrowser.db:/database.db
       - ./settings.json:/config/settings.json
 networks:

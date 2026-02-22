@@ -12,7 +12,7 @@ services:
       ND_BASEURL: ""
     volumes:
       - ./data:/data
-      - ${MEDIA_DIR}:/music:ro
+      - ${MUSIC_DIR}:/music:ro
 networks:
   default:
     name: homelab

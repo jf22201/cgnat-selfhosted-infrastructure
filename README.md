@@ -190,3 +190,12 @@ Service uptime monitoring and alerting dashboard for all hosted services.
 ### Architecture
 
 Client -> Tailscale -> Host
+
+## filebrowser
+
+```bash
+touch filebrowser.db
+echo '{}' > settings.json
+```
+
+Run this in dir before hand for config.
