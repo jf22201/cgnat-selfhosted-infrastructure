@@ -11,4 +11,5 @@ services:
       - "${TS_IP}:8080:80" # Bind only to Tailscale IP
     volumes:
       - ./data:/data
-    networks: -homelab_net
+    networks:
+      - homelab_net
