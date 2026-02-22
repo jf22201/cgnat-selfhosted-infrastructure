@@ -5,6 +5,8 @@ include:
   - ./caddy/caddy.yaml
   - ./syncthing/syncthing.yaml
   - ./uptime-kuma/uptime-kuma.yaml
+  - ./filebrowser/filebrowser.yaml
+  - ./navidrome/navidrome.yaml
 
 networks:
   homelab_net:

@@ -4,6 +4,8 @@ cloudflared-tunnel/*
 caddy/*
 syncthing/*
 uptime-kuma/*
+filebrowser/*
+navidrome/*
 #Retain dockerfiles from docker directories only
 !vaultwarden/vaultwarden.yaml
 !adguard/adguard.yaml
@@ -11,6 +13,8 @@ uptime-kuma/*
 !caddy/caddy.yaml
 !syncthing/syncthing.yaml
 !uptime-kuma/uptime-kuma.yaml
+!filebrowser/filebrowser.yaml
+!navidrome/navidrome.yaml
 #env
 .env
 !.env.example
