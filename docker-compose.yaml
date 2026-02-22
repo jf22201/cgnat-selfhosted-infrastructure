@@ -2,6 +2,7 @@ include:
   - ./adguard/adguard.yaml
   - ./vaultwarden/vaultwarden.yaml
   - ./cloudflared-tunnel/cloudflared-tunnel.yaml
+  - ./caddy/caddy.yaml
 
 networks:
   homelab_net:
