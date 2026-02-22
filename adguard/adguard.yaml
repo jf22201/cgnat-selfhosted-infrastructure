@@ -1,0 +1,15 @@
+services:
+  adguard:
+    image: adguard/adguardhome:latest
+    container_name: adguard
+    restart: unless-stopped
+    ports:
+      - "${LAN_IP}:3000:3000" # setup ui
+      - "${LAN_IP}:80:80" # web ui
+      - "${LAN_IP}:53:53/tcp" # DNS
+      - "${LAN_IP}:53:53/udp" # DNS
+    volumes:
+      - ./work:/opt/adguardhome/work
+      - ./conf:/opt/adguardhome/conf
+    networks:
+      - homelab_net

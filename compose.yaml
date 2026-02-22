@@ -1,0 +1,11 @@
+include:
+  - ./adguard/adguard.yaml
+  - ./vaultwarden/vaultwarden.yaml
+
+networks:
+homelab_net:
+  name: homelab_network
+  driver: bridge
+  ipam:
+    config:
+      - subnet: 172.20.0.0/24 #Using this subnet to avoid IP address conflicts with LAN.
