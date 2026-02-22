@@ -35,9 +35,19 @@ Client -> Router(LAN) -> Host(LAN)
 
 ### LAN setup:
 
-Router DHCP server is assigned as the host to act as the WAN DNS server for the entire network. (If Adguard is not working might need to change this back to default values so that other devices can continue to access the network.)
+Router DHCP server needs to assign the host to act as the WAN DNS server for the entire network. (If Adguard is not working might need to change this back to default values so that other devices can continue to access the network.)
 
-## Remote access
+## Syncthing
+
+- Usage: File sync between devices over p2p network.
+- Access: LAN/Tailscale (Dockerfile should be bindings to both ip addresses)
+
+### Routing
+
+Client -> LAN -> Host
+Client -> Tailscale -> Host
+
+# Remote access
 
 This setup is designed to run behind ISP CGNAT (no public IP available so impossible to forward ports) at least expense with minimal compromise to security and convenience.
 

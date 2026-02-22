@@ -3,6 +3,8 @@ include:
   - ./vaultwarden/vaultwarden.yaml
   - ./cloudflared-tunnel/cloudflared-tunnel.yaml
   - ./caddy/caddy.yaml
+  - ./syncthing/syncthing.yaml
+  - ./uptime-kuma/uptime-kuma.yaml
 
 networks:
   homelab_net:

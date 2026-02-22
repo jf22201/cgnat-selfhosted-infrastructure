@@ -2,11 +2,15 @@ vaultwarden/*
 adguard/*
 cloudflared-tunnel/*
 caddy/*
+syncthing/*
+uptime-kuma/*
 #Retain dockerfiles from docker directories only
 !vaultwarden/vaultwarden.yaml
 !adguard/adguard.yaml
 !cloudflared-tunnel/cloudflared-tunnel.yaml
 !caddy/caddy.yaml
+!syncthing/syncthing.yaml
+!uptime-kuma/uptime-kuma.yaml
 #env
 .env
 !.env.example

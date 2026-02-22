@@ -1,0 +1,21 @@
+services:
+  syncthing:
+    image: syncthing
+    container_name: syncthing
+    hostname: syncthing-hub
+    restart: unless-stopped
+    environment:
+      - PUID=${USERID}
+      - PGID=${GROUPID}
+      - TZ=${ADMIN_TOKEN}
+    ports:
+      - "${LAN_IP}:8384:8434"
+      - "${LAN_IP}:22000:22000/tcp"
+      - "${TS_IP}:22000:22000/tcp"
+      - "${LAN_IP}:22000:22000/udp"
+      - "${TS_IP}:22000:22000/udp"
+    volumes:
+      - ./config:/config
+      - ./data:/data
+    networks:
+      - homelab_net
