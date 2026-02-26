@@ -232,10 +232,20 @@ Client -> LAN -> PostgreSQL
 
 Self-hosted note taking app with sync functionality
 
-|            |                      |
-| ---------- | -------------------- |
-| **Access** | Tailscale            |
-| **URL**    | `http://TS_IP:22300` |
+|            |               |
+| ---------- | ------------- |
+| **Access** | Tailscale     |
+| **URL**    | `TS_IP:22300` |
+
+### Setup
+
+**Prereqs**:
+
+- postgres is running and 'joplin' database exists.
+
+**Configuration**:
+
+- DB login is set to just use postgres super user account.
 
 ## Stirling PDF
 

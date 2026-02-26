@@ -2,3 +2,8 @@
 your-machine.your-tailnet.ts.net {
     reverse_proxy vaultwarden:80
 }
+#reverse proxy for Joplin - this is required to access from both IP/Tailscale domain
+
+your-machine.your-tailnet.ts.net {
+    reverse_proxy joplin:22300
+}
