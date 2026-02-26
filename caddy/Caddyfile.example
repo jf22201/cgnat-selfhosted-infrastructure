@@ -1,9 +1,10 @@
+#reverse proxy for Joplin - this is required to access from both IP/Tailscale domain - routing is precedence based PUT THIS ON TOP!
+your-machine.your-tailnet.ts.net:22300{
+    reverse_proxy joplin:22300
+}
 #reverse_proxy for vaultwarden, this is needed due to requiring HTTPS to page.
 your-machine.your-tailnet.ts.net {
     reverse_proxy vaultwarden:80
 }
-#reverse proxy for Joplin - this is required to access from both IP/Tailscale domain
 
-your-machine.your-tailnet.ts.net {
-    reverse_proxy joplin:22300
-}
+
