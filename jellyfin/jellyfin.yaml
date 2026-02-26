@@ -1,0 +1,12 @@
+services:
+  jellyfin:
+    image: jellyfin/jellyfin:latest
+    container_name: jellyfin
+    ports:
+      - "${TS_IP}:8096:8096"
+      - "${LAN_IP}:8096:8096"
+    volumes:
+      - ./config:/config
+      - ./cache:/cache
+      - ${JELLYFIN_DIR}:/media
+    restart: unless-stopped

@@ -1,0 +1,12 @@
+services:
+  stirling-pdf:
+    container_name: stirling-pdf
+    image: frooodle/s-pdf:latest
+    ports:
+      - "${LAN_IP}:9090:8080"
+      - "${TS_IP}:9090:8080"
+    volumes:
+      - ./config:/configs
+    restart: unless-stopped
+    networks:
+      - homelab_net

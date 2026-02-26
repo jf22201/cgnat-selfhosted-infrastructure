@@ -8,6 +8,9 @@ include:
   - ./filebrowser/filebrowser.yaml
   - ./navidrome/navidrome.yaml
   - ./postgres/postgres.yaml
+  - ./joplin/joplin.yaml
+  - ./jellyfin/jellyfin.yaml
+  - ./stirling-pdf/stirling-pdf.yaml
 
 networks:
   homelab_net:

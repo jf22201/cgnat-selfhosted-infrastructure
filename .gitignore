@@ -7,6 +7,9 @@ uptime-kuma/*
 filebrowser/*
 navidrome/*
 postgres/*
+joplin/*
+jellyfin/*
+stirling-pdf/*
 #Retain dockerfiles from docker directories only
 !vaultwarden/vaultwarden.yaml
 !adguard/adguard.yaml
@@ -17,6 +20,9 @@ postgres/*
 !filebrowser/filebrowser.yaml
 !navidrome/navidrome.yaml
 !postgres/postgres.yaml
+!joplin/joplin.yaml
+!jellyfin/jellyfin.yaml
+!stirling-pdf/stirling-pdf.yaml
 #env
 .env
 !.env.example
