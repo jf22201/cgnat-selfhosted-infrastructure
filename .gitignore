@@ -20,6 +20,7 @@ stirling-pdf/*
 !filebrowser/filebrowser.yaml
 !navidrome/navidrome.yaml
 !postgres/postgres.yaml
+!postgres/postgres_init.sql
 !joplin/joplin.yaml
 !jellyfin/jellyfin.yaml
 !stirling-pdf/stirling-pdf.yaml
