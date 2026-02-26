@@ -7,7 +7,7 @@ include:
   - ./uptime-kuma/uptime-kuma.yaml
   - ./filebrowser/filebrowser.yaml
   - ./navidrome/navidrome.yaml
-  = ./postgres/postgres.yaml
+  - ./postgres/postgres.yaml
 
 networks:
   homelab_net:
