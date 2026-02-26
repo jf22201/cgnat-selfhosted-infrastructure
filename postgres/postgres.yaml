@@ -10,5 +10,6 @@ services:
       - "${LAN_IP}:5432:5432"
     volumes:
       - ./pgdata:/var/lib/postgresql
+      - ${SCRIPTS_DIR}/${POSTGRES_INIT}
     networks:
       - homelab_net

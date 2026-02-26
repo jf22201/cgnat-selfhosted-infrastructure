@@ -1,0 +1,1 @@
+SELECT 'CREATE DATABASE joplin' WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = 'joplin')\gexec
