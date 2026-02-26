@@ -6,6 +6,7 @@ syncthing/*
 uptime-kuma/*
 filebrowser/*
 navidrome/*
+postgres/*
 #Retain dockerfiles from docker directories only
 !vaultwarden/vaultwarden.yaml
 !adguard/adguard.yaml
@@ -15,6 +16,7 @@ navidrome/*
 !uptime-kuma/uptime-kuma.yaml
 !filebrowser/filebrowser.yaml
 !navidrome/navidrome.yaml
+!postgres/postgres.yaml
 #env
 .env
 !.env.example

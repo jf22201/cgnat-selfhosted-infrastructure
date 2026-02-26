@@ -88,7 +88,7 @@ Network-wide DNS-level ad and tracker blocking. Acts as the DNS server for the e
 
 ### Architecture
 
-Client -> Router(LAN) -> Host(LAN)
+Client -> Router(LAN) -> Adguard(LAN) -> Upstream DNS Server
 
 ### Setup
 
@@ -147,25 +147,38 @@ Client -> Tailscale -> Host
 
 WebUI is only bound on LAN.
 
-# Remote access
+## File Browser
 
-This setup is designed to run behind ISP CGNAT and achieves remote access with no additional hardware or paid services, using Tailscale free tier and Cloudflare free tunneling.
+Simple web based UI for managing files on host.
+| | |
+| ---------- | -------------------------------- |
+| **Access** | LAN |
+| **URL** | `http://192.168.50.221:8080` |
 
-### Tailscale
+**Prereqs**:
 
-All remote access to services with higher security requirements is done through tailscale. This creates a private network between devices.
-
-**Downside** : All clients require Tailscale client installed for remote access to services.
+- None
 
 **Configuration**:
 
-- Ensure MagicDNS + HTTPS Certificates are enabled on tailscale admin panel
+- Place database and config directories within the service directory.
+- Check logs to obtain initial admin user + password on first start.
 
-### Cloudflared-tunnel
+```bash
+docker logs filebrowser
+```
 
-Any services where convenience is a higher priority than security are routed through a cloudflare tunnel. This creates a persistent connection to cloudflare's edge which a domain can be pointed to and route external traffic through CGNAT.
+### Architecture
 
-Although this doesn't require a client to be installed on devices, there is a security trade off as it is now publicly exposed.
+Client -> LAN -> filebrowser
+
+### Troubleshooting
+
+- If server will not start and has issues with permissions make sure to change ownership of database/config directory to user:group 1000:1000
+
+```bash
+sudo chown 1000:1000 filebrowser_database
+```
 
 ## Uptime Kuma
 
@@ -189,13 +202,48 @@ Service uptime monitoring and alerting dashboard for all hosted services.
 
 ### Architecture
 
-Client -> Tailscale -> Host
+Client -> Tailscale -> Uptime Kuma
 
-## filebrowser
+## PostgreSQL
 
-```bash
-touch filebrowser.db
-echo '{}' > settings.json
-```
+Relational database for local development + services
 
-Run this in dir before hand for config.
+|            |                          |
+| ---------- | ------------------------ |
+| **Access** | LAN                      |
+| **URL**    | `postgres://LAN_IP:5432` |
+
+### Setup
+
+**Prereqs**:
+
+- None
+
+**Configuration**:
+
+- postgres is name of the default user and maintenance db.
+
+### Architecture
+
+Container -> PostgreSQL
+Client -> LAN -> PostgreSQL
+
+# Remote access
+
+This setup is designed to run behind ISP CGNAT and achieves remote access with no additional hardware or paid services, using Tailscale free tier and Cloudflare free tunneling.
+
+### Tailscale
+
+All remote access to services with higher security requirements is done through tailscale. This creates a private network between devices.
+
+**Downside** : All clients require Tailscale client installed for remote access to services.
+
+**Configuration**:
+
+- Ensure MagicDNS + HTTPS Certificates are enabled on tailscale admin panel
+
+### Cloudflared-tunnel
+
+Any services where convenience is a higher priority than security are routed through a cloudflare tunnel. This creates a persistent connection to cloudflare's edge which a domain can be pointed to and route external traffic through CGNAT.
+
+Although this doesn't require a client to be installed on devices, there is a security trade off as it is now publicly exposed.
