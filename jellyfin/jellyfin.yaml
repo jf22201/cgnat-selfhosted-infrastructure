@@ -10,3 +10,5 @@ services:
       - ./cache:/cache
       - ${JELLYFIN_DIR}:/media
     restart: unless-stopped
+    networks:
+      - homelab_net

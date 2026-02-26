@@ -16,5 +16,5 @@ services:
       POSTGRES_PASSWORD: ${PG_PASSWORD}
       POSTGRES_DATABASE: ${JOPLIN_DB}
     restart: unless-stopped
-  networks:
-    name: homelab
+    networks:
+      - homelab_net
