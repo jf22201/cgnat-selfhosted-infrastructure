@@ -10,6 +10,5 @@ services:
       - "${LAN_IP}:5432:5432"
     volumes:
       - ./pgdata:/var/lib/postgresql
-networks:
-  default:
-    name: homelab
+    networks:
+      - homelab_net

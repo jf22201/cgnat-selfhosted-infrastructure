@@ -208,10 +208,10 @@ Client -> Tailscale -> Uptime Kuma
 
 Relational database for local development + services
 
-|            |                          |
-| ---------- | ------------------------ |
-| **Access** | LAN                      |
-| **URL**    | `postgres://LAN_IP:5432` |
+|            |                                  |
+| ---------- | -------------------------------- |
+| **Access** | LAN                              |
+| **URL**    | `postgres://192.168.50.221:5432` |
 
 ### Setup
 
@@ -227,6 +227,30 @@ Relational database for local development + services
 
 Container -> PostgreSQL
 Client -> LAN -> PostgreSQL
+
+## Joplin
+
+Self-hosted note taking app with sync functionality
+
+|            |                      |
+| ---------- | -------------------- |
+| **Access** | Tailscale            |
+| **URL**    | `http://TS_IP:22300` |
+
+## Stirling PDF
+
+Self-hosted web based pdf editor
+| | |
+| ---------- | -------------------- |
+| **Access** | Tailscale |
+| **URL** | `http://TS_IP:9090` |
+
+## Jellyfin
+
+|            |              |
+| ---------- | ------------ |
+| **Access** | Tailscale    |
+| **URL**    | `TS_IP:8096` |
 
 # Remote access
 

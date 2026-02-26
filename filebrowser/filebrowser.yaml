@@ -9,6 +9,5 @@ services:
       - ${MEDIA_DIR}:/srv
       - ./filebrowser_database:/database
       - ./filebrowser_config:/config
-networks:
-  default:
-    name: homelab
+    networks:
+      - homelab_net
