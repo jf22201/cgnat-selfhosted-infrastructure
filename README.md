@@ -69,6 +69,8 @@ Reverse proxy handling automatic TLS certificate provisioning for internal servi
 
 - Caddy should self generate a HTTPS certificate but requires access to tailscale socket at /var/run/tailscale/tailscaled.sock to do so. This needs to bind as a volume inside container from host. This should fix any log errors regarding /var/run/tailscale/tailscaled.sock.
 
+- Stale reference to /var/run/tailscale/tailscaled.sock inode can occur if tailscaled updates on the host without restarting the Caddy container. Try restarting container if any log errors relating to this socket.
+
 ### Architecture
 
 Routing:
