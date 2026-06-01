@@ -71,6 +71,8 @@ Reverse proxy handling automatic TLS certificate provisioning for internal servi
 
 - Stale reference to /var/run/tailscale/tailscaled.sock inode can occur if tailscaled updates on the host without restarting the Caddy container. Try restarting container if any log errors relating to this socket.
 
+- Use a bind mount for the tailscale socket directory at /var/run/tailscale instead of the socket file itself, the directory inode is stable.
+
 ### Architecture
 
 Routing:
