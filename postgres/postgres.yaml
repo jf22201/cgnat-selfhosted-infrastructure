@@ -1,7 +1,8 @@
 services:
   postgres:
-    image: postgres:latest
+    image: postgres:16
     container_name: postgres
+    restart: unless-stopped
     environment:
       POSTGRES_USER: ${PG_USER}
       POSTGRES_PASSWORD: ${PG_PASSWORD}
@@ -11,5 +12,11 @@ services:
     volumes:
       - ./pgdata:/var/lib/postgresql
       - ./${POSTGRES_INIT}:/docker-entrypoint-initdb.d/${POSTGRES_INIT}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${PG_USER} -d ${PG_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
     networks:
       - homelab_net
