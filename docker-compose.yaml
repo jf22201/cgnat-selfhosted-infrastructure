@@ -11,6 +11,7 @@ include:
   - ./joplin/joplin.yaml
   - ./jellyfin/jellyfin.yaml
   - ./stirling-pdf/stirling-pdf.yaml
+  - ./calibre-web-automated/calibre-web-automated.yaml
 
 networks:
   homelab_net:

@@ -266,6 +266,31 @@ Self-hosted web based pdf editor
 | **Access** | Tailscale    |
 | **URL**    | `TS_IP:8096` |
 
+## Calibre-Web Automated
+
+Self-hosted ebook library manager with automatic ingest, conversion, and metadata enforcement.
+
+|            |              |
+| ---------- | ------------ |
+| **Access** | Tailscale    |
+| **URL**    | `http://TS_IP:8083` |
+
+### Setup
+
+**Prereqs**:
+
+- None — CWA uses SQLite internally and will auto-create a library if none exists.
+
+**Configuration**:
+
+- The calibre library lives in `./library` relative to the service directory.
+- Books are ingested by placing them in `${CALIBRE_INGEST_DIR}` (set to a convenient location like `~/books-ingest`).
+- Default admin login: `admin` / `admin123`.
+
+### Architecture
+
+Client -> Tailscale -> Calibre-Web Automated
+
 # Remote access
 
 This setup is designed to run behind ISP CGNAT and achieves remote access with no additional hardware or paid services, using Tailscale free tier and Cloudflare free tunneling.
