@@ -227,6 +227,22 @@ Relational database for local development + services
 
 - postgres is name of the default user and maintenance db.
 
+**PostgreSQL volume mount**:
+
+This template uses `postgres:16`. PostgreSQL 17 and older images must mount the data directory directly:
+
+```yaml
+- ./pgdata:/var/lib/postgresql/data
+```
+
+Do not mount the parent directory for these versions. The image declares `/var/lib/postgresql/data` as a Docker volume, so mounting `/var/lib/postgresql` leaves an anonymous child volume covering the host mount. When the container is recreated, Docker can attach a new anonymous volume and the existing database, including Joplin accounts, appears to be missing.
+
+PostgreSQL 18 and newer images changed `PGDATA` to a version-specific path such as `/var/lib/postgresql/18/docker` and changed the image volume target to `/var/lib/postgresql`. For those images, follow the image documentation and mount the parent path instead:
+
+```yaml
+- ./pgdata:/var/lib/postgresql
+```
+
 ### Architecture
 
 Container -> PostgreSQL
