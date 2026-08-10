@@ -267,6 +267,18 @@ Self-hosted note taking app with sync functionality
 
 - DB login is set to just use postgres super user account.
 
+### Troubleshooting
+
+**Password reset for localhost users**:
+
+If you have admin access but can't log in (e.g., after a Postgres container recreation), reset a user's password via a reset link stored in the database:
+
+```
+docker compose exec postgres psql -U postgres -d joplin -c "SELECT key FROM emails WHERE recipient_email = 'your-email@example.com';"
+```
+
+Open the link returned to choose a new password. Replace `joplin` with the value of `${JOPLIN_DB}` if different.
+
 ## Stirling PDF
 
 Self-hosted web based pdf editor
@@ -320,6 +332,28 @@ All remote access to services with higher security requirements is done through 
 **Configuration**:
 
 - Ensure MagicDNS + HTTPS Certificates are enabled on tailscale admin panel
+
+**Systemd override**:
+
+`RuntimeDirectoryPreserve=yes` keeps the inode of `/run/tailscale` stable across tailscaled restarts. Without it, systemd deletes and recreates the directory on every restart, and containers that bind-mount it (e.g. Caddy) keep referencing the stale directory and lose sight of the recreated `tailscaled.sock`. Only affects restarts, not reboots — `/run` is tmpfs and is recreated fresh at boot.
+
+```bash
+sudo systemctl edit tailscaled
+```
+
+```ini
+[Service]
+RuntimeDirectoryPreserve=yes
+```
+
+Then reload and restart:
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl restart tailscaled
+```
+
+The override lives in `/etc/systemd/system/tailscaled.service.d/override.conf` and is merged with the packaged unit.
 
 ### Cloudflared-tunnel
 
